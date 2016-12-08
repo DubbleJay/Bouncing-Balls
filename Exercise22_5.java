@@ -36,6 +36,7 @@ public class Exercise22_5 {
       frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
       frame.setLocationRelativeTo(null);
       frame.setVisible(true);
+      frame.setResizable(false);
       timer.start();
       
       slide.addChangeListener(new ChangeListener() {
@@ -89,7 +90,7 @@ public class Exercise22_5 {
          g.fillRect(0 ,0, this.getWidth(), this.getHeight());
          
          for(int i = 0; i < list.size(); i++){
-            g.setColor(Color.red); 
+            g.setColor(list.get(i).color); 
             g.fillOval(list.get(i).x, list.get(i).y, list.get(i).w, list.get(i).h); 
          }
       }
@@ -135,12 +136,14 @@ class Circle {
    int w; 
    int h; 
    boolean up;
+   Color color;
    
    Circle(){
       x = (int)(Math.random() * 682);
       y = (int)(Math.random() * 617);
       w = 40; 
-      h = 40; 
+      h = 40;
+      color = new Color((int)(Math.random() * 256), (int)(Math.random() * 256), (int)(Math.random() * 256)); 
       
    }
    
